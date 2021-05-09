@@ -31,10 +31,10 @@ class Movies extends Component {
 
   handleDelete = async movie => {
     const originalMovies = this.state.movies;
-    const movies = this.state.originalMovies.filter(m => m._id !== movie._id);
+    const movies = this.state.movies.filter(m => m._id !== movie._id);
     this.setState({ movies: movies });
     try {
-      await deleteMovie(movie.id);
+      await deleteMovie(movie._id);
     } catch (ex) {
       if (ex.response && ex.response.status === 404) {
         toast.error("This movie has already been deleted");
