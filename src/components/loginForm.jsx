@@ -23,7 +23,9 @@ class LoginForm extends Form {
       const { data } = this.state;
       const { data: jwt } = await login(data.username, data.password);
       localStorage.setItem("token", jwt);
-      this.props.history.push("/");
+      window.location = "/";
+      // this will have a delay when login
+      //  this.props.history.push("/");
       console.log("jwt", jwt);
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
