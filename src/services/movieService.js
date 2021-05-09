@@ -12,10 +12,11 @@ const getMovieUrl = id => {
 };
 export function saveMovie(movie) {
   if (movie._id) {
+    console.log("movie id", movie._id);
     // pass all movie key value to body
     const body = { ...movie };
     // delete movieId property
-    delete body.movieId;
+    delete body._id;
     return http.put(getMovieUrl(movie._id), body);
   }
   return http.post(apiEndpoint, movie);
