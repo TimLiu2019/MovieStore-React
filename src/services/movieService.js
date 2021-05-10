@@ -1,6 +1,7 @@
 import http from "./httpService";
-import { apiUrl } from "../config.json";
-const apiEndpoint = apiUrl + "/movies";
+//import { apiUrl } from "../config.json";
+const apiEndpoint = "/movies";
+//const apiEndpoint = apiUrl + "/movies";
 export function getMovies() {
   return http.get(apiEndpoint);
 }
@@ -23,6 +24,6 @@ export function saveMovie(movie) {
 }
 
 export function deleteMovie(movieId) {
-   console.log('delete movieid',movieId)
+  console.log("delete movieid", movieId);
   return http.delete(getMovieUrl(movieId));
 }

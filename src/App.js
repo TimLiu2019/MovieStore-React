@@ -21,7 +21,9 @@ class App extends Component {
     const user = auth.getCurrentUser();
     this.setState({ user });
   }
+ 
   render() {
+    console.log('sup',process.env);
     return (
       <React.Fragment>
         <ToastContainer />

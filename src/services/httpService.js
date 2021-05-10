@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 // to avoid bi-directional dependencies, we  set jwt, instead of get
 //axios.defaults.headers.common["x-auth-token"] = auth.getJwt();
-
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 axios.interceptors.response.use(null, error => {
   const expectedError =
     error.response &&
@@ -17,9 +17,8 @@ axios.interceptors.response.use(null, error => {
   return Promise.reject(error);
 });
 
-export function setJwt(jwt){
+export function setJwt(jwt) {
   axios.defaults.headers.common["x-auth-token"] = jwt;
-
 }
 
 export default {
