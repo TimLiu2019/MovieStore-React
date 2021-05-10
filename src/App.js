@@ -23,7 +23,7 @@ class App extends Component {
   }
  
   render() {
-    console.log('sup',process.env);
+    console.log('sup',process.env.REACT_APP_API_URL);
     return (
       <React.Fragment>
         <ToastContainer />
