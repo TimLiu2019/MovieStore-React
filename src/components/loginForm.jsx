@@ -1,7 +1,8 @@
 import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
-import { login } from "../services/authService";
+import auth from "../services/authService";
+import { Redirect } from "react-router-dom";
 
 class LoginForm extends Form {
   state = {
@@ -21,8 +22,9 @@ class LoginForm extends Form {
   doSubmit = async () => {
     try {
       const { data } = this.state;
-      await login(data.username, data.password);
-      window.location = "/";
+      await auth.login(data.username, data.password);
+      const { state } = this.props.location;
+      window.location = state ? state.from.pathname : "/";
       // this will have a delay when login
       //  this.props.history.push("/");
     } catch (ex) {
@@ -38,6 +40,7 @@ class LoginForm extends Form {
   };
 
   render() {
+    if (auth.getCurrentUser()) return <Redirect to="/" />;
     return (
       <div>
         <h1>Login</h1>
