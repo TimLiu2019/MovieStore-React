@@ -1,7 +1,17 @@
 
 ## Description
+### A rental movie management system
+1. Home: movies, check all available movies
+2. Login
+3. Register: after registration, allow to add a movie
+4. Customers: backend is testing, UI will be done soon
+5. Rentals: backend is testing, UI will be dond soom
 
-In the project directory, you can run:
+### Deployment
+ #### frontend: heroku
+ #### backend: heroku + Altas mongodb
+
+
 
 ### `npm start`
 
